@@ -4,7 +4,7 @@ import { ColorModeScript } from "@chakra-ui/react";
 import "./globals.css";
 import { Providers } from "./providers";
 import { LOGO_URL, FAVICON_URL } from "@/lib/constants";
-import theme from "@/lib/theme";
+import config from "@/lib/theme-config";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const cairo = Cairo({ subsets: ["arabic"], variable: "--font-cairo" });
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${cairo.variable}`} suppressHydrationWarning>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <ColorModeScript initialColorMode={config.initialColorMode} />
         <Providers>{children}</Providers>
       </body>
     </html>
