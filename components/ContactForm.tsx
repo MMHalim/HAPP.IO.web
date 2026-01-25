@@ -75,16 +75,16 @@ export default function ContactForm() {
       }))
       
       toast({
-        title: 'Upload successful',
-        description: `${uploadedUrls.length} file(s) uploaded.`,
+        title: t('contact.upload.success.title'),
+        description: `${uploadedUrls.length} ${t('contact.upload.success.description')}`,
         status: 'success',
         duration: 3000,
       })
     } catch (error: any) {
       console.error('Upload error:', error)
       toast({
-        title: 'Upload failed',
-        description: error.message || 'Please check your internet connection or try again.',
+        title: t('contact.upload.error.title'),
+        description: error.message || t('contact.error.description'),
         status: 'error',
         duration: 5000,
       })
@@ -112,8 +112,8 @@ export default function ContactForm() {
       }
 
       toast({
-        title: 'Request submitted.',
-        description: "We've received your request and will get back to you soon.",
+        title: t('contact.success.title'),
+        description: t('contact.success.description'),
         status: 'success',
         duration: 5000,
         isClosable: true,
@@ -121,8 +121,8 @@ export default function ContactForm() {
       setFormData({ name: '', email: '', phone: '', details: '', photoUrls: [], videoUrls: [] })
     } catch (error) {
       toast({
-        title: 'Error.',
-        description: 'Something went wrong. Please try again later.',
+        title: t('contact.error.title'),
+        description: t('contact.error.description'),
         status: 'error',
         duration: 5000,
         isClosable: true,

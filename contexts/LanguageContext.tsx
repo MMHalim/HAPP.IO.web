@@ -90,6 +90,13 @@ const translations = {
     'contact.upload.video': 'Upload Video',
     'contact.uploaded.photo': 'Photo Uploaded',
     'contact.uploaded.video': 'Video Uploaded',
+    'contact.success.title': 'Request submitted.',
+    'contact.success.description': "We've received your request and will get back to you soon.",
+    'contact.error.title': 'Error.',
+    'contact.error.description': 'Something went wrong. Please try again later.',
+    'contact.upload.success.title': 'Upload successful',
+    'contact.upload.success.description': 'file(s) uploaded.',
+    'contact.upload.error.title': 'Upload failed',
 
     // Footer
     'footer.rights': 'All rights reserved.',
@@ -173,6 +180,13 @@ const translations = {
     'contact.upload.video': 'تحميل فيديو',
     'contact.uploaded.photo': 'تم تحميل الصورة',
     'contact.uploaded.video': 'تم تحميل الفيديو',
+    'contact.success.title': 'تم إرسال الطلب.',
+    'contact.success.description': 'لقد استلمنا طلبك وسنعود إليك قريبًا.',
+    'contact.error.title': 'خطأ.',
+    'contact.error.description': 'حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقًا.',
+    'contact.upload.success.title': 'تم التحميل بنجاح',
+    'contact.upload.success.description': 'ملف(ات) تم تحميلها.',
+    'contact.upload.error.title': 'فشل التحميل',
 
     // Footer
     'footer.rights': 'جميع الحقوق محفوظة.',
