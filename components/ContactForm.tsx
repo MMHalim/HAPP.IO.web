@@ -16,6 +16,11 @@ import {
   HStack,
   useColorModeValue,
   Spinner,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  CloseButton,
 } from '@chakra-ui/react'
 import { useState, useRef } from 'react'
 import { FaPaperPlane, FaCamera, FaVideo } from 'react-icons/fa'
@@ -23,7 +28,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { supabase } from '@/lib/supabase'
 
 export default function ContactForm() {
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const borderColor = useColorModeValue('gray.200', 'white')
   const [formData, setFormData] = useState({
     name: '',
@@ -114,21 +119,71 @@ export default function ContactForm() {
       }
 
       toast({
-        title: t('contact.success.title'),
-        description: t('contact.success.description'),
-        status: 'success',
         duration: 5000,
         isClosable: true,
+        render: ({ onClose }) => (
+          <Alert
+            status="success"
+            variant="solid"
+            borderRadius="md"
+            alignItems="start"
+            dir={language === 'ar' ? 'rtl' : 'ltr'}
+          >
+            <AlertIcon />
+            <Box
+              flex="1"
+              mr={language === 'ar' ? 2 : 0}
+              ml={language === 'ar' ? 0 : 2}
+              pl={language === 'ar' ? 8 : 0}
+              pr={language === 'ar' ? 0 : 8}
+            >
+              <AlertTitle>{t('contact.success.title')}</AlertTitle>
+              <AlertDescription>{t('contact.success.description')}</AlertDescription>
+            </Box>
+            <CloseButton
+              position="absolute"
+              top={2}
+              right={language === 'ar' ? 'unset' : 2}
+              left={language === 'ar' ? 2 : 'unset'}
+              onClick={onClose}
+            />
+          </Alert>
+        ),
       })
       setFormData({ name: '', email: '', phone: '', details: '', photoUrls: [], videoUrls: [] })
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast({
-        title: t('contact.error.title'),
-        description: error.message || t('contact.error.description'),
-        status: 'error',
         duration: 5000,
         isClosable: true,
+        render: ({ onClose }) => (
+          <Alert
+            status="error"
+            variant="solid"
+            borderRadius="md"
+            alignItems="start"
+            dir={language === 'ar' ? 'rtl' : 'ltr'}
+          >
+            <AlertIcon />
+            <Box
+              flex="1"
+              mr={language === 'ar' ? 2 : 0}
+              ml={language === 'ar' ? 0 : 2}
+              pl={language === 'ar' ? 8 : 0}
+              pr={language === 'ar' ? 0 : 8}
+            >
+              <AlertTitle>{t('contact.error.title')}</AlertTitle>
+              <AlertDescription>{error.message || t('contact.error.description')}</AlertDescription>
+            </Box>
+            <CloseButton
+              position="absolute"
+              top={2}
+              right={language === 'ar' ? 'unset' : 2}
+              left={language === 'ar' ? 2 : 'unset'}
+              onClick={onClose}
+            />
+          </Alert>
+        ),
       })
     } finally {
       setIsLoading(false)
