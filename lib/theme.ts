@@ -5,6 +5,7 @@ import config from './theme-config'
 const theme = extendTheme({
   config,
   styles: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     global: (props: any) => ({
       body: {
         bg: mode('gray.50', 'gray.800')(props),

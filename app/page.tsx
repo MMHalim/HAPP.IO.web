@@ -425,6 +425,7 @@ const ServiceCard = ({ title, text, icon, color }: FeatureProps) => {
 const WorkflowFeature = ({ title, text, icon, index, color }: FeatureProps & { index: number }) => {
   const showDividerMd = index % 2 === 0
   const showDividerLg = index < 3
+  const defaultBg = useColorModeValue('gray.100', 'gray.700')
 
   return (
     <Box position="relative" h="full">
@@ -436,7 +437,7 @@ const WorkflowFeature = ({ title, text, icon, index, color }: FeatureProps & { i
           justify={'center'}
           color={'white'}
           rounded={'full'}
-          bg={color || useColorModeValue('gray.100', 'gray.700')}
+          bg={color || defaultBg}
           mb={1}
         >
           {icon}
@@ -462,6 +463,7 @@ const WorkflowFeature = ({ title, text, icon, index, color }: FeatureProps & { i
 }
 
 const Feature = ({ title, text, icon, color }: FeatureProps) => {
+  const defaultBg = useColorModeValue('gray.100', 'gray.700')
   return (
     <Stack align={'center'} textAlign={'center'}>
       <Flex
@@ -471,7 +473,7 @@ const Feature = ({ title, text, icon, color }: FeatureProps) => {
         justify={'center'}
         color={'white'}
         rounded={'full'}
-        bg={color || useColorModeValue('gray.100', 'gray.700')}
+        bg={color || defaultBg}
         mb={1}
       >
         {icon}

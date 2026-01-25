@@ -14,8 +14,7 @@ export async function POST(request: Request) {
     }
 
     // Use the renamed model ProjectRequest
-    // Cast to any to bypass temporary type mismatch in IDE
-    const newRequest = await (prisma as any).projectRequest.create({
+    const newRequest = await prisma.projectRequest.create({
       data: {
         name,
         email,
