@@ -26,10 +26,11 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(newRequest, { status: 201 });
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
     console.error('Error creating request:', error);
     return NextResponse.json(
-      { error: 'Failed to submit request' },
+      { error: error.message || 'Failed to submit request' },
       { status: 500 }
     );
   }

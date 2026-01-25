@@ -109,7 +109,8 @@ export default function ContactForm() {
       })
 
       if (!response.ok) {
-        throw new Error('Failed to submit request')
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to submit request')
       }
 
       toast({
@@ -120,10 +121,11 @@ export default function ContactForm() {
         isClosable: true,
       })
       setFormData({ name: '', email: '', phone: '', details: '', photoUrls: [], videoUrls: [] })
-    } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
       toast({
         title: t('contact.error.title'),
-        description: t('contact.error.description'),
+        description: error.message || t('contact.error.description'),
         status: 'error',
         duration: 5000,
         isClosable: true,
