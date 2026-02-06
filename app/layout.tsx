@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   title: "HAPP.IO",
   description: "Build your dream software with expert developers.",
   icons: {
-    icon: FAVICON_URL,
+    icon: [
+      { url: FAVICON_URL, href: FAVICON_URL, type: 'image/png' },
+    ],
   },
 };
 
